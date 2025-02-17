@@ -5,9 +5,11 @@ import os
 SERVER_HOST = '127.0.0.1'
 SERVER_PORT = 5000
 SERVER_DATA_PATH = 'server_files'  # Folder for storing files
+active_threads = 0  # Track active threads
 
 # Function to handle client requests
 def handle_client(client_socket, address):
+    global active_threads
     print(f"[📡] New client connected: {address}")
     
     while True:
@@ -65,9 +67,15 @@ def handle_client(client_socket, address):
 
     print(f"[🔌] Client disconnected: {address}")
     client_socket.close()
+    
+    # Decrease active thread count
+    active_threads -= 1
+    print(f"[🔻] Active threads: {active_threads}")
 
 # Function to start the server
 def start_server():
+    global active_threads
+
     if not os.path.exists(SERVER_DATA_PATH):
         os.makedirs(SERVER_DATA_PATH)
 
@@ -78,6 +86,12 @@ def start_server():
 
     while True:
         client_socket, addr = server_socket.accept()
+        print(f"[🧵] Creating new thread for client: {addr}")
+
+        # Increase active thread count
+        active_threads += 1
+        print(f"[🔺] Active threads: {active_threads}")
+
         threading.Thread(target=handle_client, args=(client_socket, addr)).start()
 
 if __name__ == '__main__':
