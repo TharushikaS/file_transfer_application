@@ -7,8 +7,8 @@ How It Works:
 2. Start the client: python client.py
 3. Use commands:
 * LIST → View available files on the server
-* UPLOAD <source_file_path> → Upload a file to the server (Ex: test_files/test2.txt)
-* DOWNLOAD <file_name> <save_path> → Download a file from the server (Ex: test3.txt test_files/downloaded_test3.txt)
+* UPLOAD <source_file_path> → Upload a file to the server (Ex: UPLOAD test_files/test2.txt )
+* DOWNLOAD <file_name> <save_path> → Download a file from the server (Ex: DOWNLOAD test3.txt test_files/downloaded_test3.txt )
 * QUIT → Disconnect from the server
 
 
