@@ -2,7 +2,7 @@ import socket
 import threading
 import os
 
-SERVER_HOST = '127.0.0.1'
+SERVER_HOST = '0.0.0.0'
 SERVER_PORT = 5000
 SERVER_DATA_PATH = 'server_files'  # Folder for storing files
 active_threads = 0  # Track active threads
