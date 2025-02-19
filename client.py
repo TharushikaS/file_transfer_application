@@ -2,7 +2,7 @@ import socket
 import os
 import threading
 
-SERVER_HOST = '127.0.0.1'
+SERVER_HOST = '192.168.30.12'
 SERVER_PORT = 5000
 
 class Client:
